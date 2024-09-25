@@ -5,10 +5,16 @@ import samosa from "../src/assets/samosa.jpeg";
 const App = () => {
   const [count, setCount] = useState(0);
 
-  const [multiplier] = useState(1);
+  const [multiplier, setMultiplier] = useState(1);
 
   const updateCount = () => setCount(count + multiplier);
 
+  const buyDoubleStuffed =() => {
+    if (count >= 10) {
+      setCount(count - 10);
+      setMultiplier(multiplier * 2);
+    }
+  }
   return (
     <div className="App">
       <div className="header">
@@ -25,7 +31,7 @@ const App = () => {
         <div className="upgrade">
           <h3>Double Stuffed 👯‍♀️	</h3>
           <p>2x per click</p>
-          <button>10 samosas</button>
+          <button onClick={buyDoubleStuffed}>10 samosas</button>
         </div>
         <div className="upgrade">
           <h3>Party Pack 🎉</h3>
